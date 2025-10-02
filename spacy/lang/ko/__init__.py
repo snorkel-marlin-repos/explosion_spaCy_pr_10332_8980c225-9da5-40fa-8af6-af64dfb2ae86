@@ -1,6 +1,5 @@
 from typing import Iterator, Any, Dict
 
-from .punctuation import TOKENIZER_INFIXES
 from .stop_words import STOP_WORDS
 from .tag_map import TAG_MAP
 from .lex_attrs import LEX_ATTRS
@@ -86,7 +85,6 @@ class KoreanDefaults(BaseDefaults):
     lex_attr_getters = LEX_ATTRS
     stop_words = STOP_WORDS
     writing_system = {"direction": "ltr", "has_case": False, "has_letters": False}
-    infixes = TOKENIZER_INFIXES
 
 
 class Korean(Language):
@@ -101,7 +99,7 @@ def try_mecab_import() -> None:
         return MeCab
     except ImportError:
         raise ImportError(
-            'The Korean tokenizer ("spacy.ko.KoreanTokenizer") requires '
+            "The Korean tokenizer (\"spacy.ko.KoreanTokenizer\") requires "
             "[mecab-ko](https://bitbucket.org/eunjeon/mecab-ko/src/master/README.md), "
             "[mecab-ko-dic](https://bitbucket.org/eunjeon/mecab-ko-dic), "
             "and [natto-py](https://github.com/buruzaemon/natto-py)"
