@@ -192,6 +192,10 @@ class Warnings(metaclass=ErrorsWithCodes):
     W115 = ("Skipping {method}: the floret vector table cannot be modified. "
             "Vectors are calculated from character ngrams.")
     W116 = ("Unable to clean attribute '{attr}'.")
+    W117 = ("No spans to visualize found in Doc object with spans_key: '{spans_key}'. If this is "
+            "surprising to you, make sure the Doc was processed using a model "
+            "that supports span categorization, and check the `doc.spans[spans_key]` "
+            "property manually if necessary.")
 
 
 class Errors(metaclass=ErrorsWithCodes):
@@ -566,6 +570,9 @@ class Errors(metaclass=ErrorsWithCodes):
     E879 = ("Unexpected type for 'spans' data. Provide a dictionary mapping keys to "
             "a list of spans, with each span represented by a tuple (start_char, end_char). "
             "The tuple can be optionally extended with a label and a KB ID.")
+    E880 = ("The 'wandb' library could not be found - did you install it? "
+            "Alternatively, specify the 'ConsoleLogger' in the 'training.logger' "
+            "config section, instead of the 'WandbLogger'.")
     E884 = ("The pipeline could not be initialized because the vectors "
             "could not be found at '{vectors}'. If your pipeline was already "
             "initialized/trained before, call 'resume_training' instead of 'initialize', "

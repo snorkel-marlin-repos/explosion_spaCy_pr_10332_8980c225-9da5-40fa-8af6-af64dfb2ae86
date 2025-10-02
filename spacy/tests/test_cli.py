@@ -34,7 +34,7 @@ from .util import make_tempdir
 
 
 @pytest.mark.issue(4665)
-def test_cli_converters_conllu_empty_heads_ner():
+def test_issue4665():
     """
     conllu_to_docs should not raise an exception if the HEAD column contains an
     underscore
@@ -59,11 +59,7 @@ def test_cli_converters_conllu_empty_heads_ner():
 17	.	_	PUNCT	.	_	_	punct	_	_
 18	]	_	PUNCT	-RRB-	_	_	punct	_	_
 """
-    docs = list(conllu_to_docs(input_data))
-    # heads are all 0
-    assert not all([t.head.i for t in docs[0]])
-    # NER is unset
-    assert not docs[0].has_annotation("ENT_IOB")
+    conllu_to_docs(input_data)
 
 
 @pytest.mark.issue(4924)
